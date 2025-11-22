@@ -14,7 +14,7 @@ fun AppNavGraph(){
     val navController = rememberNavController()
 
     NavHost(navController = navController,
-        startDestination = "RegistroScreen"){   // Ruta Principal
+        startDestination = "ListadoScreen"){   // Ruta Principal
 
         
         composable("RegistroScreen"){

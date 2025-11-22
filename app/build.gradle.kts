@@ -5,8 +5,6 @@ plugins {
 
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
-
-
 }
 
 android {
@@ -63,13 +61,12 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
 
-    // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
+    // Import the Firebase BoM - Using the correct, latest stable version.
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
 
-    // When using the BoM, don't specify versions in Firebase dependencies
+    // Declare Firebase dependencies WITHOUT versions. The BoM will manage them.
     implementation("com.google.firebase:firebase-analytics")
-    // Dependency for Cloud Firestore (now includes ktx)
-    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-firestore-ktx")
 
 
     // Dependences for the App
@@ -78,7 +75,4 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.4")
     // Coil Compose      -       Show images in the app
     implementation("io.coil-kt:coil-compose:2.7.0")
-
-    implementation("io.coil-kt:coil-compose:2.6.0")
-
 }
