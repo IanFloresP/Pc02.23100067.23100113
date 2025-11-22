@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "940493646178",
+    "project_id": "pc2-app-c00de",
+    "storage_bucket": "pc2-app-c00de.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940493646178:android:ce4c7e3320c76332aca43b",
+        "android_client_info": {
+          "package_name": "PC2.pc022310006723100113"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxvHJZxEL5eVNlllq0dXybFkd_VkDR4X8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
