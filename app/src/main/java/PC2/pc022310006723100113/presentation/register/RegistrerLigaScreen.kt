@@ -29,10 +29,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegistrerLigaScreen(
+    navController: NavHostController,
     onBackClick: () -> Unit = {}, // Callback para regresar
     onSaveClick: (String, String, String, String) -> Unit = { _, _, _, _ -> } // Callback para guardar (nombre, anio, titulos, url)
 ) {
