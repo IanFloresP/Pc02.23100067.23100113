@@ -26,6 +26,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
@@ -33,17 +34,18 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun RegistrerLigaScreen(
     onBackClick: () -> Unit = {}, // Callback para regresar
-    onSaveClick: (String, String, String) -> Unit = { _, _, _ -> } // Callback para guardar (nombre, deporte, país)
+    onSaveClick: (String, String, String, String) -> Unit = { _, _, _, _ -> } // Callback para guardar (nombre, anio, titulos, url)
 ) {
     // Estados para los campos del formulario
-    var nombreLiga by remember { mutableStateOf("") }
-    var deporte by remember { mutableStateOf("") }
-    var pais by remember { mutableStateOf("") }
+    var nombreEquipo by remember { mutableStateOf("") }
+    var anioFundacion by remember { mutableStateOf("") }
+    var numTitulos by remember { mutableStateOf("") }
+    var urlImagen by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Registrar Nueva Liga") },
+                title = { Text("Registro Liga 1") },
                 navigationIcon = {
                     IconButton(onClick = { onBackClick() }) {
                         Icon(
@@ -64,41 +66,55 @@ fun RegistrerLigaScreen(
             verticalArrangement = Arrangement.Top
         ) {
             Text(
-                text = "Ingrese los datos de la liga",
-                style = MaterialTheme.typography.titleMedium,
+                text = "Registro Liga 1",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
-            // Campo: Nombre de la Liga
+            // Campo: Nombre del equipo
             OutlinedTextField(
-                value = nombreLiga,
-                onValueChange = { nombreLiga = it },
-                label = { Text("Nombre de la Liga") },
+                value = nombreEquipo,
+                onValueChange = { nombreEquipo = it },
+                label = { Text("Nombre del equipo") },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Campo: Deporte
+            // Campo: Año de fundación
             OutlinedTextField(
-                value = deporte,
-                onValueChange = { deporte = it },
-                label = { Text("Deporte") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Campo: País
-            OutlinedTextField(
-                value = pais,
-                onValueChange = { pais = it },
-                label = { Text("País") },
+                value = anioFundacion,
+                onValueChange = { anioFundacion = it },
+                label = { Text("Año de fundación") },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Campo: Número de títulos ganados
+            OutlinedTextField(
+                value = numTitulos,
+                onValueChange = { numTitulos = it },
+                label = { Text("Número de títulos ganados") },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Campo: URL de la imagen
+            OutlinedTextField(
+                value = urlImagen,
+                onValueChange = { urlImagen = it },
+                label = { Text("URL de la imagen del equipo") },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri)
             )
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -106,16 +122,16 @@ fun RegistrerLigaScreen(
             // Botón de Guardar
             Button(
                 onClick = {
-                    if (nombreLiga.isNotEmpty() && deporte.isNotEmpty()) {
-                        onSaveClick(nombreLiga, deporte, pais)
+                    if (nombreEquipo.isNotEmpty() && anioFundacion.isNotEmpty() && numTitulos.isNotEmpty()) {
+                        onSaveClick(nombreEquipo, anioFundacion, numTitulos, urlImagen)
                     }
                 },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp),
-                enabled = nombreLiga.isNotEmpty() && deporte.isNotEmpty() // Deshabilitar si está vacío
+                enabled = nombreEquipo.isNotEmpty() && anioFundacion.isNotEmpty() && numTitulos.isNotEmpty() // Deshabilitar si campos obligatorios están vacíos
             ) {
-                Text(text = "Registrar Liga")
+                Text(text = "Registrar Equipo")
             }
         }
     }
