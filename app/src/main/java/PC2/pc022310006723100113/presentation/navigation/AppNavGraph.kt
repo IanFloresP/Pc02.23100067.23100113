@@ -1,6 +1,7 @@
 package PC2.pc022310006723100113.presentation.navigation
 
 import PC2.pc022310006723100113.presentation.listado.ListadoScreen
+import PC2.pc022310006723100113.presentation.register.RegistrerLigaScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -15,11 +16,12 @@ fun AppNavGraph(){
     NavHost(navController = navController,
         startDestination = "RegistroScreen"){   // Ruta Principal
 
-        /*
+        
         composable("RegistroScreen"){
-            RegisterLigaScreen(navController)
+            // Nombre corregido para que coincida con el de tu archivo
+            RegistrerLigaScreen(navController)
         }
-        */
+        
 
         composable("ListadoScreen"){
             ListadoScreen(navController)
@@ -29,9 +31,4 @@ fun AppNavGraph(){
     }
 
 
-
-
-
-
 }
-
