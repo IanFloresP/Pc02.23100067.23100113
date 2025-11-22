@@ -40,12 +40,18 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+
+import androidx.navigation.NavHostController
+
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegistrerLigaScreen(
+    navController: NavHostController,
     onBackClick: () -> Unit = {}, // Callback para regresar
     onSaveClick: (String, String, String, String) -> Unit = { _, _, _, _ -> } // Callback para guardar
 ) {
