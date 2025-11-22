@@ -79,4 +79,6 @@ dependencies {
     // Coil Compose      -       Show images in the app
     implementation("io.coil-kt:coil-compose:2.7.0")
 
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
 }
